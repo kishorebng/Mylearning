@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GooglePlusTest</string>
+    <string name="logout">Logout</string>
+    <string name="revoke">Revoke Access</string>
+
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="loading">Loading…</string>
+</resources>

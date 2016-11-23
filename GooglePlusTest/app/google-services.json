@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "989046374065",
+    "project_id": "evident-trees-150403"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989046374065:android:5049347961e68323",
+        "android_client_info": {
+          "package_name": "com.kishore.googleplustest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989046374065-dbk3ggkaaptpanuhjupkjk9s3f5hnds5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kishore.googleplustest",
+            "certificate_hash": "95434564B6B82A210213D5EBB2066A5EDFF63991"
+          }
+        },
+        {
+          "client_id": "989046374065-e9ed32f4o97chur71p3u0s8fbqv17rp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq9joIURtbd80AN9zlbFdT3gDLmZ2LdFk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
