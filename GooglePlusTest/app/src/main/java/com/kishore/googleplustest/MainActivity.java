@@ -137,8 +137,10 @@ public class MainActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            mNameView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
+            mNameView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+            mEmailView.setText(getString(R.string.email_fmt,acct.getEmail()));
+
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
@@ -206,9 +208,11 @@ public class MainActivity extends AppCompatActivity implements
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
+            mProfileLayout.setVisibility(View.VISIBLE);
             mSignIn.setVisibility(View.GONE);
             mSignOut.setVisibility(View.VISIBLE);
         } else {
+            mProfileLayout.setVisibility(View.GONE);
             mSignIn.setVisibility(View.VISIBLE);
             mSignOut.setVisibility(View.GONE);
         }
