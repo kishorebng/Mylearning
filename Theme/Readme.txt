@@ -1,1 +1,1 @@
-1) Different flavours project with different resource
+1) Different flavours project with different resources
