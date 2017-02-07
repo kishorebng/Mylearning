@@ -1,0 +1,32 @@
+Two major properties of Dynamic programming
+
+To decide whether problem can be solved by applying Dynamic programming we check for two properties. 
+
+If problem has these two properties then we can solve that problem using Dynamic programming.
+
+   1) Overlapping Subproblems
+   2) Optimal Substructure.
+   
+  Overlapping Subproblems:
+
+          Overlapping subproblems, as the name suggests the subproblems needs to be solved again and again. 
+          In recursion we solve those problems every time and in dynamic programming we solve these sub problems only once and store it for future use.
+          
+  Optimal Substructure: 
+          
+          If a problem can be solved by using the solutions of the sub problems then we say that problem has a Optimal Substructure Property.
+          
+  
+  Dynamic Programming Approaches:
+
+     Bottom-Up
+     Top-Down
+
+   Bottom-Up Approach:
+
+         Suppose we need to solve the problem for N, We start solving the problem with the smallest possible inputs and store it for future. 
+         Now as you calculate for the bigger values use the stored solutions      
+   
+   Top-Down Approach:
+
+         Break the problem into sub-problems and solve them as needed and store the solution for future.                

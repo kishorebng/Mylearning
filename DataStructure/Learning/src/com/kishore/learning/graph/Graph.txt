@@ -1,0 +1,42 @@
+Graph can be represented G (V,E)
+
+   1) vertex List and Edge List
+       Vertex list will have vertex name
+       Edge List will be start vertex and end vertex wieght if needed
+       
+       class Edge 
+       {
+         int startVertex;
+         int endVertex;
+         int weight;
+       }
+       String vertex_list[max];
+       Edge edge_list[max];
+       
+       Memory usage :  O (|V|+|E|)
+       Time complexity will be propostional to edge : finding adjacent nodes  -> O (|E|)
+                                                     checking if given 2 node is connected  -> O (|E|)
+                                                     
+        if |V| = n 
+        then 0< |E| < n (n-1) if directed  0< |E| < v (v-1)
+        0 < |E|< n(n-1)/2 if undirected         v(v-1)/2                it is costly
+        
+     2) Matrix   array of size v*v
+        matrix representation of undirected unweighted graph is Adjacency Matrix 
+        
+        Memory usage :  O (|V|)^2 
+        
+        
+        time    finding adjacent nodes  -> O (|V|)      
+           checking if given 2 node is connected   ->   O (|V|)   
+                 use hastable to avoid indexing then it will O(1)        
+                 
+     3) Adjacency List
+        Store what is connected
+        
+           Memory usage :  O (|E|) 
+        
+        
+        time    finding adjacent nodes  -> O (|V|) --> linear search  O log v for binary search      
+           checking if given 2 node is connected   ->   O (|V|)   
+                
