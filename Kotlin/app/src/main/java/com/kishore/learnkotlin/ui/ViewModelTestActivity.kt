@@ -7,19 +7,18 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.kishore.learnkotlin.R
-import com.kishore.learnkotlin.livedata.LiveScoreViewModel
 import com.kishore.learnkotlin.viewmodel.ScoreViewModel
+import com.kishore.learnkotlin.viewmodel.livedata.LiveScoreViewModel
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class ViewModelTestActivity : AppCompatActivity() {
 
     private lateinit var mViewModel: ScoreViewModel
     private lateinit var mLiveViewModel: LiveScoreViewModel
+
     private lateinit var scoreViewA: TextView
     private lateinit var scoreViewB: TextView
     private lateinit var scoreViewC: TextView
-
 
     //track team A score
     var scoreTeamA: Int = 0;
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.view_model_activity)
 
         scoreViewA = findViewById(R.id.team_a_score) as TextView
         displayForTeamA(scoreTeamA)
@@ -40,11 +39,12 @@ class MainActivity : AppCompatActivity() {
         scoreViewC = findViewById(R.id.team_c_score) as TextView
         mLiveViewModel = ViewModelProviders.of(this).get(LiveScoreViewModel::class.java)
 
-        mLiveViewModel.scoreTeamC.observe(this, object: Observer<Int> {
+        mLiveViewModel.scoreTeamC.observe(this, object : Observer<Int> {
             override fun onChanged(t: Int?) {
                 displayForTeamC(t!!)
             }
         })
+
     }
 
     fun addOneForTeamA(v: View) {
@@ -61,12 +61,14 @@ class MainActivity : AppCompatActivity() {
         mLiveViewModel.scoreTeamC.value = rnd.nextInt(10);
     }
 
+
     /**
      * Resets the score for both teams back to 0.
      */
     fun resetScore(v: View) {
         scoreTeamA = 0;
         mViewModel.scoreTeamB = 0;
+        mLiveViewModel.scoreTeamC.value = 0;
         displayForTeamA(scoreTeamA)
         displayForTeamB(mViewModel.scoreTeamB)
 

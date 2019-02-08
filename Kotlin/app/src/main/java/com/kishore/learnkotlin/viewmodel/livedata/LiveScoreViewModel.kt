@@ -1,4 +1,4 @@
-package com.kishore.learnkotlin.livedata
+package com.kishore.learnkotlin.viewmodel.livedata
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
