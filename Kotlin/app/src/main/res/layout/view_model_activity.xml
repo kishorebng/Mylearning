@@ -21,8 +21,20 @@
         tools:context=".ui.ViewModelTestActivity">
 
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="View Model Example"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+
         <LinearLayout
             android:id="@+id/layout1"
+            android:layout_marginTop="35dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

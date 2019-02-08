@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.kishore.learnkotlin.R
 import com.kishore.learnkotlin.viewmodel.ScoreViewModel
 import com.kishore.learnkotlin.viewmodel.livedata.LiveScoreViewModel
 import java.util.*
