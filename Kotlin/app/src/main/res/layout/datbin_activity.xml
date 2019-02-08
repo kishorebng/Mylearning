@@ -23,6 +23,9 @@
         <variable
             name="teamCScore"
             type="com.kishore.learnkotlin.databinding.LiveTeamScore" />
+        <variable
+            name="teamDScore"
+            type="com.kishore.learnkotlin.databinding.TeamScoreObservable" />
     </data>
 
     <ScrollView
@@ -243,10 +246,211 @@
             </LinearLayout>
 
 
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_below="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="No ViewModel"
+                        android:textColor="#616161"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="Team D"
+                        android:textColor="#616161"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/team_d_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:paddingBottom="24dp"
+                        android:text="@{Integer.toString(teamDScore.observableScore)}"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="addOneForTeamD"
+                        android:text="D+" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="NA" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="With ViewModel"
+                        android:textColor="#616161"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="Team E"
+                        android:textColor="#616161"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/team_e_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:paddingBottom="24dp"
+
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <!--android:text="@{Integer.toString(teamBScore.score)}"-->
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="addOneForTeamE"
+                        android:text="B+" />
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="updateTeamE"
+                        android:text="show" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="Live Data"
+                        android:textColor="#616161"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:text="Team F"
+                        android:textColor="#616161"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/team_f_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:paddingBottom="24dp"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+                    <!--android:text="@{Integer.toString(teamCScore.teamScore)}"-->
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="addOneForTeamF"
+                        android:text="F+" />
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="NA" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/layout1"
+                android:layout_below="@+id/layout2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="32dp"
                 android:onClick="resetScore"
