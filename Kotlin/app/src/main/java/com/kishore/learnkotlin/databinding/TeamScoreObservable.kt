@@ -10,6 +10,7 @@ class TeamScoreObservable : BaseObservable() {
     var observableScore: Int =0
     @Bindable get() = observableScore
 
+
 //    set(value) {
 //        score = value
 //        notifyPropertyChanged(BR.score)

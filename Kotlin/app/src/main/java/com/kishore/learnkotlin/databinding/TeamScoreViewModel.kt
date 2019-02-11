@@ -6,5 +6,4 @@ class TeamScoreViewModel :ViewModel(){
 
     //track team  score
     var score: Int = 0;
-
 }

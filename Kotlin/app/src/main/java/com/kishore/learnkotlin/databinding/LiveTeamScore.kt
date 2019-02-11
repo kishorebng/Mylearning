@@ -11,5 +11,4 @@ class LiveTeamScore : ViewModel() {
     init {
         teamScore.value = 0
     }
-
 }
