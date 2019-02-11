@@ -14,18 +14,35 @@
     tools:context=".ui.DataBindingTestActivity">
 
     <data>
+
         <variable
             name="teamAScore"
             type="com.kishore.learnkotlin.databinding.TeamScore" />
+
         <variable
             name="teamBScore"
             type="com.kishore.learnkotlin.databinding.TeamScoreViewModel" />
+
         <variable
             name="teamCScore"
             type="com.kishore.learnkotlin.databinding.LiveTeamScore" />
+
         <variable
             name="teamDScore"
             type="com.kishore.learnkotlin.databinding.TeamScoreObservable" />
+
+        <variable
+            name="teamEScore"
+            type="com.kishore.learnkotlin.databinding.TeamScoreObservableField" />
+
+        <variable
+            name="teamFScore"
+            type="com.kishore.learnkotlin.databinding.LiveTeamScore" />
+
+        <variable
+            name="handler"
+            type="com.kishore.learnkotlin.ui.DataBindingTestActivity.ClickHandler" />
+
     </data>
 
     <ScrollView
@@ -41,9 +58,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:text="Data Binding Example"
-                android:layout_centerHorizontal="true"
                 android:textColor="#000000"
                 android:textSize="25sp" />
 
@@ -94,23 +111,23 @@
                         android:textSize="15sp" />
 
 
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:layout_marginBottom="8dp"
-                            android:onClick="addOneForTeamA"
-                            android:text="A+" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="addOneForTeamA"
+                        android:text="A+" />
 
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:layout_marginBottom="8dp"
-                            android:onClick="updateTeamA"
-                            android:text="show" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:onClick="updateTeamA"
+                        android:text="show" />
 
                 </LinearLayout>
 
@@ -246,12 +263,11 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:id="@+id/layout2"
-                android:layout_below="@+id/layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/layout1"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
@@ -267,7 +283,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="No ViewModel"
+                        android:text="Observable"
                         android:textColor="#616161"
                         android:textSize="12sp" />
 
@@ -331,7 +347,7 @@
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="With ViewModel"
+                        android:text="ObservableField"
                         android:textColor="#616161"
                         android:textSize="12sp" />
 
@@ -353,11 +369,10 @@
                         android:fontFamily="sans-serif-light"
                         android:gravity="center"
                         android:paddingBottom="24dp"
-
+                        android:text="@{Integer.toString(teamEScore.score.get())}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
-                    <!--android:text="@{Integer.toString(teamBScore.score)}"-->
 
                     <Button
                         android:layout_width="match_parent"
@@ -420,10 +435,9 @@
                         android:fontFamily="sans-serif-light"
                         android:gravity="center"
                         android:paddingBottom="24dp"
+                        android:text="@{Integer.toString(teamFScore.teamScore)}"
                         android:textColor="#000000"
                         android:textSize="15sp" />
-                    <!--android:text="@{Integer.toString(teamCScore.teamScore)}"-->
-
 
                     <Button
                         android:layout_width="match_parent"
@@ -431,7 +445,7 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginRight="24dp"
                         android:layout_marginBottom="8dp"
-                        android:onClick="addOneForTeamF"
+                        android:onClick="@{handler::addOneForTeamF}"
                         android:text="F+" />
 
 
@@ -444,7 +458,6 @@
                         android:text="NA" />
                 </LinearLayout>
             </LinearLayout>
-
 
 
             <Button

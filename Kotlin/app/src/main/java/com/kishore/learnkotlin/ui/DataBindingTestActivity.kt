@@ -3,6 +3,7 @@ package com.kishore.learnkotlin.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -16,10 +17,11 @@ class DataBindingTestActivity : AppCompatActivity() {
     private lateinit var binding: DatbinActivityBinding
 
     private lateinit var teamAScore: TeamScore
-    private lateinit var mViewModel: TeamScoreViewModel
-    private lateinit var mLiveViewModel: LiveTeamScore
+    private lateinit var mteamBViewModel: TeamScoreViewModel
+    private lateinit var mteamCLiveViewModel: LiveTeamScore
     private lateinit var teamDScore: TeamScoreObservable
-
+    private lateinit var teamEScore: TeamScoreObservableField
+    lateinit var mteamFLiveViewModel: LiveTeamScore
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +31,12 @@ class DataBindingTestActivity : AppCompatActivity() {
         teamAScore = TeamScore()
         setTeamAbinding()
 
-        mViewModel = ViewModelProviders.of(this).get(TeamScoreViewModel::class.java)
-        binding.setTeamBScore(mViewModel)
+        mteamBViewModel = ViewModelProviders.of(this).get(TeamScoreViewModel::class.java)
+        binding.setTeamBScore(mteamBViewModel)
         setTeamBbinding()
 
-        mLiveViewModel = ViewModelProviders.of(this).get(LiveTeamScore::class.java)
-        mLiveViewModel.teamScore.observe(this, object : Observer<Int> {
+        mteamCLiveViewModel = ViewModelProviders.of(this).get(LiveTeamScore::class.java)
+        mteamCLiveViewModel.teamScore.observe(this, object : Observer<Int> {
             override fun onChanged(t: Int?) {
                 setTeamCbinding()
             }
@@ -43,6 +45,21 @@ class DataBindingTestActivity : AppCompatActivity() {
 
         teamDScore = TeamScoreObservable()
         setTeamDbinding()
+
+        teamEScore = TeamScoreObservableField()
+        setTeamEbinding()
+
+        var clickhandler = ClickHandler()
+        binding.setHandler(clickhandler)
+
+        mteamFLiveViewModel = ViewModelProviders.of(this).get(LiveTeamScore::class.java)
+        mteamFLiveViewModel.teamScore.observe(this, object : Observer<Int> {
+            override fun onChanged(t: Int?) {
+                setTeamFbinding()
+            }
+        })
+        setTeamFbinding()
+
     }
 
     fun addOneForTeamA(v: View) {
@@ -56,7 +73,7 @@ class DataBindingTestActivity : AppCompatActivity() {
     }
 
     fun addOneForTeamB(v: View) {
-        mViewModel.score = mViewModel.score + 1;
+        mteamBViewModel.score = mteamBViewModel.score + 1;
     }
 
     fun updateTeamB(v: View) {
@@ -65,25 +82,23 @@ class DataBindingTestActivity : AppCompatActivity() {
 
     fun addOneForTeamC(v: View) {
         val rnd = Random()
-        mLiveViewModel.teamScore.value = rnd.nextInt(10);
+        mteamCLiveViewModel.teamScore.value = rnd.nextInt(10);
     }
 
 
     fun addOneForTeamD(v: View) {
         val rnd = Random()
-        teamDScore = TeamScoreObservable()
         teamDScore.observableScore = rnd.nextInt(50) + 2
     }
 
 
     fun addOneForTeamE(v: View) {
+        val rnd = Random()
+        teamEScore.score.set(rnd.nextInt(15))
     }
 
     fun updateTeamE(v: View) {
         setTeamAbinding()
-    }
-
-    fun addOneForTeamF(v: View) {
     }
 
 
@@ -92,15 +107,23 @@ class DataBindingTestActivity : AppCompatActivity() {
     }
 
     fun setTeamBbinding() {
-        binding.setTeamBScore(mViewModel)
+        binding.setTeamBScore(mteamBViewModel)
     }
 
     fun setTeamCbinding() {
-        binding.setTeamCScore(mLiveViewModel)
+        binding.setTeamCScore(mteamCLiveViewModel)
     }
 
     fun setTeamDbinding() {
         binding.setTeamDScore(teamDScore)
+    }
+
+    fun setTeamEbinding() {
+        binding.setTeamEScore(teamEScore)
+    }
+
+    fun setTeamFbinding() {
+        binding.setTeamFScore(mteamFLiveViewModel)
     }
 
 
@@ -110,8 +133,26 @@ class DataBindingTestActivity : AppCompatActivity() {
     fun resetScore(v: View) {
         teamAScore = TeamScore()
         setTeamAbinding()
-        mViewModel.score = 0;
+
+        mteamBViewModel.score = 0;
         setTeamBbinding()
-        mLiveViewModel.teamScore.value = 0;
+
+        mteamCLiveViewModel.teamScore.value = 0;
+
+        teamDScore.observableScore = 0;
+
+        teamEScore.score.set(0)
+
+        mteamFLiveViewModel.teamScore.value = 0;
+    }
+
+
+    inner class ClickHandler {
+
+        fun addOneForTeamF(v :View) {
+            Toast.makeText(applicationContext,"test",Toast.LENGTH_SHORT).show()
+            val rnd = Random()
+            mteamFLiveViewModel.teamScore.value = rnd.nextInt(10);
+        }
     }
 }
