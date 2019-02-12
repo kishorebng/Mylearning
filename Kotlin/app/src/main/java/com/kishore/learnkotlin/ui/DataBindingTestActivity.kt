@@ -21,7 +21,8 @@ class DataBindingTestActivity : AppCompatActivity() {
     private lateinit var mteamCLiveViewModel: LiveTeamScore
     private lateinit var teamDScore: TeamScoreObservable
     private lateinit var teamEScore: TeamScoreObservableField
-    lateinit var mteamFLiveViewModel: LiveTeamScore
+
+    private lateinit var mteamFViewModel: TeamScoreViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,12 +53,8 @@ class DataBindingTestActivity : AppCompatActivity() {
         var clickhandler = ClickHandler()
         binding.setHandler(clickhandler)
 
-        mteamFLiveViewModel = ViewModelProviders.of(this).get(LiveTeamScore::class.java)
-        mteamFLiveViewModel.teamScore.observe(this, object : Observer<Int> {
-            override fun onChanged(t: Int?) {
-                setTeamFbinding()
-            }
-        })
+        mteamFViewModel = ViewModelProviders.of(this).get(TeamScoreViewModel::class.java)
+        binding.setTeamBScore(mteamBViewModel)
         setTeamFbinding()
 
     }
@@ -123,7 +120,7 @@ class DataBindingTestActivity : AppCompatActivity() {
     }
 
     fun setTeamFbinding() {
-        binding.setTeamFScore(mteamFLiveViewModel)
+        binding.setTeamFScore(mteamFViewModel)
     }
 
 
@@ -143,7 +140,8 @@ class DataBindingTestActivity : AppCompatActivity() {
 
         teamEScore.score.set(0)
 
-        mteamFLiveViewModel.teamScore.value = 0;
+        mteamFViewModel.score = 0;
+        setTeamFbinding()
     }
 
 
@@ -152,7 +150,8 @@ class DataBindingTestActivity : AppCompatActivity() {
         fun addOneForTeamF(v :View) {
             Toast.makeText(applicationContext,"test",Toast.LENGTH_SHORT).show()
             val rnd = Random()
-            mteamFLiveViewModel.teamScore.value = rnd.nextInt(10);
+            mteamFViewModel.score =  rnd.nextInt(10);
+            setTeamFbinding()
         }
     }
 }
