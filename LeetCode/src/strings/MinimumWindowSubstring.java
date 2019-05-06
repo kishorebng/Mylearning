@@ -17,7 +17,7 @@ public class MinimumWindowSubstring {
 	    	 int stringlength = s.length();    	 
 	    	 final int MAX_CHAR = 256;
 	    	 int map [] = new int [MAX_CHAR];
-	    	 //initialize map  which store char counters 
+	    	 //initialize map  which store char counters for which we need to substring
 	    	 for (int i=0;i<searchlength;i++) {
 	    		 map[t.charAt(i)]++;
 	    	 }
@@ -112,6 +112,6 @@ public class MinimumWindowSubstring {
      
      public static void main(String[] args) {
 		
-		System.out.println("hash minWindow "+minWindow("aa", "aa"));
+		System.out.println("hash minWindow "+minWindow("abaa", "aa"));
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public class ConstructTreewithPreIn {
 	
 
-
+    //In Pre order first element will be root   
 	public static TreeNode buildBinTreewithPreOrder( int[] inorder, int[] preOrder, int inStart,int inEnd, int preStart){
 		 if (inStart> inEnd) {
 			 return null;
