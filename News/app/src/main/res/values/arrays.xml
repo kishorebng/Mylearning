@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  for the human-readable labels -->
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_newest_label</item>
+        <item>@string/settings_order_by_oldest_label</item>
+    </string-array>
+    <!-- for the value to save for a preference when an entry from entries is selected -->
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_newest_value</item>
+        <item>@string/settings_order_by_oldest_value</item>
+    </string-array>
+
+    <string-array name="country_by_labels">
+        <item>@string/country_argentine_label</item>
+        <item>@string/country_austria_label</item>
+        <item>@string/country_australia_label</item>
+        <item>@string/country_belgium_label</item>
+        <item>@string/country_bulgaria_label</item>
+        <item>@string/country_canada_label</item>
+        <item>@string/country_china_label</item>
+        <item>@string/country_colombia_label</item>
+        <item>@string/country_cuba_label</item>
+        <item>@string/country_czech_republic_label</item>
+        <item>@string/country_egypt_label</item>
+        <item>@string/country_france_label</item>
+        <item>@string/country_greece_label</item>
+        <item>@string/country_germany_label</item>
+        <item>@string/country_hong_kong_label</item>
+        <item>@string/country_hungary_label</item>
+        <item>@string/country_india_label</item>
+        <item>@string/country_indonesia_label</item>
+        <item>@string/country_ireland_label</item>
+        <item>@string/country_israel_label</item>
+        <item>@string/country_italy_label</item>
+        <item>@string/country_japan_label</item>
+        <item>@string/country_latvia_label</item>
+        <item>@string/country_lithuania_label</item>
+        <item>@string/country_malaysia_label</item>
+        <item>@string/country_mexico_label</item>
+        <item>@string/country_morocco_label</item>
+        <item>@string/country_netherlands_label</item>
+        <item>@string/country_new_zealand_label</item>
+        <item>@string/country_nigeria_label</item>
+        <item>@string/country_norway_label</item>
+        <item>@string/country_philippines_label</item>
+        <item>@string/country_poland_label</item>
+        <item>@string/country_romania_label</item>
+        <item>@string/country_russia_label</item>
+        <item>@string/country_saudi_arabia_label</item>
+        <item>@string/country_serbia_label</item>
+        <item>@string/country_singapore_label</item>
+        <item>@string/country_slovakia_label</item>
+        <item>@string/country_slovenia_label</item>
+        <item>@string/country_south_africa_label</item>
+        <item>@string/country_south_korea_label</item>
+        <item>@string/country_sweden_label</item>
+        <item>@string/country_switzerland_label</item>
+        <item>@string/country_taiwan_label</item>
+        <item>@string/country_thailand_label</item>
+        <item>@string/country_turkey_label</item>
+        <item>@string/country_ukraine_label</item>
+        <item>@string/country_uae_label</item>
+        <item>@string/country_united_kingdom_label</item>
+        <item>@string/country_united_states_label</item>
+        <item>@string/country_venezuela_label</item>
+    </string-array>
+
+    <string-array name="country_by_values">
+        <item>@string/country_argentine_value</item>
+        <item>@string/country_austria_value</item>
+        <item>@string/country_australia_value</item>
+        <item>@string/country_belgium_value</item>
+        <item>@string/country_bulgaria_value</item>
+        <item>@string/country_canada_value</item>
+        <item>@string/country_china_value</item>
+        <item>@string/country_colombia_value</item>
+        <item>@string/country_cuba_value</item>
+        <item>@string/country_czech_republic_value</item>
+        <item>@string/country_egypt_value</item>
+        <item>@string/country_france_value</item>
+        <item>@string/country_greece_value</item>
+        <item>@string/country_germany_value</item>
+        <item>@string/country_hong_kong_value</item>
+        <item>@string/country_hungary_value</item>
+        <item>@string/country_india_value</item>
+        <item>@string/country_indonesia_value</item>
+        <item>@string/country_ireland_value</item>
+        <item>@string/country_israel_value</item>
+        <item>@string/country_italy_value</item>
+        <item>@string/country_japan_value</item>
+        <item>@string/country_latvia_value</item>
+        <item>@string/country_lithuania_value</item>
+        <item>@string/country_malaysia_value</item>
+        <item>@string/country_mexico_value</item>
+        <item>@string/country_morocco_value</item>
+        <item>@string/country_netherlands_value</item>
+        <item>@string/country_new_zealand_value</item>
+        <item>@string/country_nigeria_value</item>
+        <item>@string/country_norway_value</item>
+        <item>@string/country_philippines_value</item>
+        <item>@string/country_poland_value</item>
+        <item>@string/country_romania_value</item>
+        <item>@string/country_russia_value</item>
+        <item>@string/country_saudi_arabia_value</item>
+        <item>@string/country_serbia_value</item>
+        <item>@string/country_singapore_value</item>
+        <item>@string/country_slovakia_value</item>
+        <item>@string/country_slovenia_value</item>
+        <item>@string/country_south_africa_value</item>
+        <item>@string/country_south_korea_value</item>
+        <item>@string/country_sweden_value</item>
+        <item>@string/country_switzerland_value</item>
+        <item>@string/country_taiwan_value</item>
+        <item>@string/country_thailand_value</item>
+        <item>@string/country_turkey_value</item>
+        <item>@string/country_ukraine_value</item>
+        <item>@string/country_uae_value</item>
+        <item>@string/country_united_kingdom_value</item>
+        <item>@string/country_united_states_value</item>
+        <item>@string/country_venezuela_value</item>
+    </string-array>
+
+</resources>

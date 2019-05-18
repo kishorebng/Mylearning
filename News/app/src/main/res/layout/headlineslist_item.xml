@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.kishore.news.viewmodel.NewsListItemViewModel" />
+    </data>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/card_layout_margin"
+    android:layout_marginLeft="@dimen/card_layout_margin"
+    android:layout_marginStart="@dimen/card_layout_margin"
+    android:layout_marginEnd="@dimen/card_layout_margin"
+    android:layout_marginRight="@dimen/card_layout_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="@color/colorCardView"
+    app:cardCornerRadius="@dimen/card_layout_corner_radius">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_card_main"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/headlines_image_height"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="imageurl"
+                android:scaleType="centerCrop"
+                android:src="@{itemViewModel.news.urlToImage}"/>
+
+            <TextView
+                android:id="@+id/tv_card_main_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_card_main"
+                android:layout_margin="@dimen/tv_card_layout_margin"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:text="@{itemViewModel.news.title}" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</layout>
