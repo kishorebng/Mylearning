@@ -1,12 +1,10 @@
-package com.kishore.news.common
+package com.kishore.news.common.depndency.dagger
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
-import dagger.Component
+import com.kishore.news.common.depndency.NewsSharedPreferenceDagger
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 /*
   Module means the class which contains methods who will provide dependencies.
@@ -15,7 +13,7 @@ import javax.inject.Singleton
 class NewsSharedPreferencesModule(var context: Context) {
 
     @Provides
-    fun provideSharedPreferences(): NewsSharedPreference {
-        return NewsSharedPreference(PreferenceManager.getDefaultSharedPreferences(context))
+    fun provideSharedPreferences(): NewsSharedPreferenceDagger {
+        return NewsSharedPreferenceDagger(PreferenceManager.getDefaultSharedPreferences(context))
     }
 }

@@ -2,7 +2,6 @@ package com.kishore.news.view
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
@@ -18,12 +17,14 @@ import androidx.recyclerview.widget.*
 import com.kishore.news.InjectorUtils
 import com.kishore.news.NewsApplication
 import com.kishore.news.R
-import com.kishore.news.common.NewsSharedPreference
 import com.kishore.news.common.NewsUtil
+import com.kishore.news.common.depndency.NewsSharedPreferenceDagger
+import com.kishore.news.common.depndency.NewsSharedPreferenceKoin
 import com.kishore.news.databinding.FragmentNewslistBinding
 import com.kishore.news.viewmodel.NewsListViewModel
 import com.kishore.news.viewmodel.NewsListViewModelFactory
 import com.kishore.news.viewmodel.adapter.NewsListAdapter
+import org.koin.android.ext.android.inject
 import javax.inject.Inject
 
 
@@ -37,7 +38,9 @@ class NewsListFragment : Fragment(), NewsListAdapter.NewsListOnItemClickHandler,
     private lateinit var headlineslayoutManager : LinearLayoutManager
 
     @Inject
-    lateinit var mySharedPreferences: NewsSharedPreference
+    lateinit var mySharedPreferencesDagger: NewsSharedPreferenceDagger
+
+    val mySharedPreferencesKoinDagger: NewsSharedPreferenceKoin by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -94,13 +97,18 @@ class NewsListFragment : Fragment(), NewsListAdapter.NewsListOnItemClickHandler,
 
         var application : NewsApplication = requireContext().applicationContext as NewsApplication
         application.newsComponent.injectHere(this)
-        val shared= mySharedPreferences.getStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key),"")
+        val shared= mySharedPreferencesDagger.getStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key),"")
         if(TextUtils.isEmpty(shared)) {
-            mySharedPreferences.putStringPreference(mContext.getString(com.kishore.news.R.string.country_key),NewsUtil.getCountryCode())
-            mySharedPreferences.putStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key),NewsUtil.getDisplayCountry())
+            mySharedPreferencesDagger.putStringPreference(mContext.getString(com.kishore.news.R.string.country_key),NewsUtil.getCountryCode())
+            mySharedPreferencesDagger.putStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key),NewsUtil.getDisplayCountry())
         }
         Log.i("sql", "prefer "+shared)
-       autoScroll()
+
+        val shared1= mySharedPreferencesKoinDagger.getStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key),"")
+
+        Log.i("sql", "prefer Koin1 " +shared)
+
+        autoScroll()
     }
 
 

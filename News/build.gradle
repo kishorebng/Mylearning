@@ -24,6 +24,7 @@ buildscript {
         glideVersion = '3.8.0'
         legacySupportVersion = '1.0.0'
         daggerVersion= '2.22.1'
+        koin_version = '1.0.2'
     }
 
     repositories {

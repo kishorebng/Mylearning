@@ -1,15 +1,13 @@
 package com.kishore.news.model.network
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.preference.PreferenceManager
 import androidx.work.*
 import com.kishore.news.NewsApplication
-import com.kishore.news.common.NewsSharedPreference
 import com.kishore.news.common.NewsUtil
+import com.kishore.news.common.depndency.NewsSharedPreferenceDagger
 import com.kishore.news.model.database.NewsTable
 import com.kishore.news.model.network.newsapi.NewsRetrofitClient
 import com.kishore.news.model.worker.NewsCoroutineWorker
@@ -19,7 +17,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.net.URLEncoder
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -30,7 +27,7 @@ class NewsNetworkDataSource(context: Context,
     private val LOG_TAG = NewsNetworkDataSource::class.java.simpleName
     private lateinit var mContext: Context
     @Inject
-    lateinit var mySharedPreferences: NewsSharedPreference
+    lateinit var mySharedPreferencesDagger: NewsSharedPreferenceDagger
 
     init {
         mContext = context
@@ -110,7 +107,7 @@ class NewsNetworkDataSource(context: Context,
     }
 
      fun setHeadlinesParameters() : Map<String, String> {
-         val countryCode = mySharedPreferences.getStringPreference(mContext.getString(com.kishore.news.R.string.country_key),NewsUtil.getCountryCode())
+         val countryCode = mySharedPreferencesDagger.getStringPreference(mContext.getString(com.kishore.news.R.string.country_key),NewsUtil.getCountryCode())
          val data: MutableMap<String, String> = mutableMapOf<String, String>()
          data.put("country", countryCode)
          return data
@@ -118,7 +115,7 @@ class NewsNetworkDataSource(context: Context,
      }
 
     fun setAllNewsParameters() : Map<String, String> {
-        val query = mySharedPreferences.getStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key), NewsUtil.getDisplayCountry())
+        val query = mySharedPreferencesDagger.getStringPreference(mContext.getString(com.kishore.news.R.string.country_entry_key), NewsUtil.getDisplayCountry())
         val data: MutableMap<String, String> = mutableMapOf<String, String>()
         data.put("q", URLEncoder.encode(query, "UTF-8"))
         data.put("from", NewsUtil.getformatedToday())

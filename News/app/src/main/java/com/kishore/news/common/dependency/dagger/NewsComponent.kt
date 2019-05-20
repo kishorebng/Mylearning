@@ -1,4 +1,4 @@
-package com.kishore.news.common
+package com.kishore.news.common.depndency.dagger
 
 import com.kishore.news.model.network.NewsNetworkDataSource
 import com.kishore.news.view.NewsListFragment

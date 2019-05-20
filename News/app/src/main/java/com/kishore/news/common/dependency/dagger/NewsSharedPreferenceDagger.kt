@@ -1,14 +1,13 @@
-package com.kishore.news.common
+package com.kishore.news.common.depndency
 
 import android.content.SharedPreferences
-import javax.inject.Inject
 
 /*
   Provides means the methods who provide dependency.
   Inject means who accepts the object provided by the @Provides method.
  */
 
-class NewsSharedPreference (var sharedPreferences: SharedPreferences) {
+class NewsSharedPreferenceDagger (var sharedPreferences: SharedPreferences) {
 
     fun putStringPreference(key: String, data: String) {
         sharedPreferences.edit().putString(key, data).apply()
